@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jätteeks Jääny - Romun Nouto Oulussa</title>
+    <style>
+        :root {
+            --dark-green: #2E4D34;
+            --light-green: #81C784;
+            --natural-white: #F4F1ED;
+            --text-dark: #1E1E1E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-green);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 80px;
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 15px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--dark-green);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--light-green);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(46, 77, 52, 0.8), rgba(46, 77, 52, 0.9));
+            padding: 40px 0;
+            text-align: center;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin: 0 auto 20px;
+            color: var(--natural-white);
+            max-width: 90%;
+        }
+
+        /* Sections */
+        .section {
+            background-color: var(--natural-white);
+            padding: 30px 15px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--dark-green);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+
+        /* Benefits */
+        .benefits {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .benefit {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--light-green);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .benefit h3 {
+            color: var(--dark-green);
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 1.3rem;
+        }
+
+        .benefit p {
+            text-align: center;
+        }
+
+        /* Email Form */
+        .email-form {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .email-form h3 {
+            color: var(--dark-green);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .form-group input {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .btn {
+            background-color: var(--light-green);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background-color: var(--dark-green);
+        }
+
+        /* Services */
+        .services {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .service-item {
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+        }
+
+        .service-item h3 {
+            color: var(--dark-green);
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--dark-green);
+            color: white;
+            padding: 30px 15px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .phone {
+            font-size: 1.5rem;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .whatsapp {
+            display: block;
+            background-color: #25D366;
+            color: white;
+            padding: 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 20px auto;
+            max-width: 300px;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp:hover {
+            background-color: #128C7E;
+        }
+
+        .service-area {
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a2e21;
+            color: var(--natural-white);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Fixed CTA */
+        .fixed-cta {
+            position: fixed;
+            bottom: 70px;
+            right: 15px;
+            z-index: 1000;
+        }
+
+        .fixed-cta .btn {
+            width: auto;
+            padding: 12px 20px;
+            font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        /* How to publish section */
+        .publish-guide {
+            background-color: #e8f5e9;
+            padding: 25px 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .publish-guide h3 {
+            color: var(--dark-green);
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 1.4rem;
+        }
+
+        .publish-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .step-number {
+            background-color: var(--light-green);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-weight: bold;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step h4 {
+            margin-bottom: 5px;
+            color: var(--dark-green);
+        }
+
+        .step p {
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed CTA Button -->
+    <div class="fixed-cta">
+        <button class="btn">Tilaa nouto -10%</button>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">JÄTTEEKS <span>JÄÄNY</span></div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Kun jää ylimääräistä – me haetaan!</h1>
+            <p>Jätteeks Jääny noutaa huonekalut, elektroniikan ja muun romun suoraan kotoasi – ekologisesti ja paikallisesti.</p>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="section">
+            <h2 class="section-title">Miksi valita meidät?</h2>
+            <div class="benefits">
+                <div class="benefit">
+                    <div class="benefit-icon">🚚</div>
+                    <h3>Nopea nouto</h3>
+                    <p>Jätä romusi ulos ja me noudamme sen sovittuna aikana. Ei tarvetta odottaa kotiin.</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">♻️</div>
+                    <h3>Ekologinen kierrätys</h3>
+                    <p>Kaikki jätteemme käsitellään ympäristöystävällisesti ja kierrätetään mahdollisimman paljon.</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">📍</div>
+                    <h3>Paikallinen palvelu</h3>
+                    <p>Palvelemme Oulua ja sen lähikuntia. Tuke paikallista yritystä!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Email Signup Section -->
+        <section class="section">
+            <div class="email-form">
+                <h3>Tilaa uutiskirjeemme ja saat -10% ensimmäisestä noudosta!</h3>
+                <p>Pysy ajan tasalla tarjouksistamme ja uusista palveluistamme.</p>
+                <form id="emailForm">
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Sähköpostiosoitteesi" required>
+                        <button type="submit" class="btn">Tilaa ja saat -10%</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="section">
+            <h2 class="section-title">Mitä noudamme?</h2>
+            <div class="services">
+                <div class="service-item">
+                    <div>🛋️</div>
+                    <h3>Huonekalut</h3>
+                    <p>Sohvat, pöydät, kaapit</p>
+                </div>
+                <div class="service-item">
+                    <div>📺</div>
+                    <h3>Elektroniikka</h3>
+                    <p>TV:t, tietokoneet</p>
+                </div>
+                <div class="service-item">
+                    <div>🔨</div>
+                    <h3>Remonttijätteet</h3>
+                    <p>Rakennusmateriaalit</p>
+                </div>
+                <div class="service-item">
+                    <div>🚗</div>
+                    <h3>Autotallit</h3>
+                    <p>Tyhjennämme autotallit</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <h2 class="section-title" style="color: white;">Ota yhteyttä</h2>
+            <div class="phone">
+                <a href="tel:+358442309006" style="color: white; text-decoration: none;">044 230 9006</a>
+            </div>
+            <a href="https://wa.me/358442309006" class="whatsapp">
+                <span>💬</span> WhatsApp-viesti
+            </a>
+            <div class="service-area">
+                <p>Palvelemme Oulua ja lähikuntia</p>
+            </div>
+        </section>
+
+        <!-- Julkaisuopas -->
+        <section class="publish-guide">
+            <h3>Julkaise tämä sivu puhelimellasi</h3>
+            <div class="publish-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Kopioi koko koodi</h4>
+                        <p>Pidä tätä sivua painettuna ja valitse "Kopioi kaikki"</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Luo uusi tiedosto</h4>
+                        <p>Käytä jotain näistä ilmaisista palveluista:</p>
+                        <p><a href="https://pages.github.com/" target="_blank">GitHub Pages</a> (ohjeet puhelimelle)</p>
+                        <p><a href="https://www.netlify.com/" target="_blank">Netlify</a> (mobiilisovellus)</p>
+                        <p><a href="https://neocities.org/" target="_blank">Neocities</a> (mobiiliystävällinen)</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Liitä koodi ja julkaise</h4>
+                        <p>Luo uusi HTML-tiedosto, liitä koodi ja tallenna. Sivusi on nyt julkaistu verkossa!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2023 Jätteeks Jääny - Ekologinen jätteen nouto Oulussa</p>
+        </div>
+    </footer>
+
+    <script>
+        // Lomakkeen käsittely
+        document.getElementById('emailForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.email.value;
+            
+            if (email && email.includes('@')) {
+                alert(`Kiitos tilauksestasi! 10% alennuskoodi on lähetetty osoitteeseen: ${email}`);
+                this.reset();
+            } else {
+                alert('Ole hyvä ja syötä kelvollinen sähköpostiosoite.');
+            }
+        });
+
+        // Kiinteä CTA-painike
+        document.querySelector('.fixed-cta .btn').addEventListener('click', function() {
+            document.querySelector('.email-form').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        });
+    </script>
+</body>
+</html>
